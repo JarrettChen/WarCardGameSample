@@ -174,8 +174,7 @@ public class WarGame {
 			System.out.println("Player " + currentPlayers.get(i).getId() + " plays " + curCard);
 		}
 		
-		int oneRoundMax = findMax(oneRoundRanks); // Find the maximum rank on table
-		List<Integer> hasMaxPlayer = findMaxPlayer(oneRoundRanks, oneRoundMax); // The indices of the players in List<Integer> currentPlayer, who played the maximum rank card
+		List<Integer> hasMaxPlayer = findMaxPlayer(oneRoundRanks); // The indices of the players in List<Integer> currentPlayer, who played the maximum rank card
 		
 		/* see this method comments. */
 		oneRoundProcess(hasMaxPlayer, oneRoundCards);
@@ -270,8 +269,7 @@ public class WarGame {
 			warCardsRanks[i] = warCards.get(i).getRank();
 		}
 		
-		int oneRoundMax = findMax(warCardsRanks); // Find the maximum rank on table
-		hasMaxPlayer = findMaxPlayer(warCardsRanks, oneRoundMax); // Update the indices of the players in List<Integer> currentPlayer, who played the maximum rank card
+		hasMaxPlayer = findMaxPlayer(warCardsRanks); // Update the indices of the players in List<Integer> currentPlayer, who played the maximum rank card
 		
 
 		oneRoundProcess(hasMaxPlayer, oneRoundCards);
@@ -330,23 +328,13 @@ public class WarGame {
 		
 	}
 	
-	
-	/**
-	 * @param nums
-	 * @return the max number in the array
-	 */
-	private int findMax(int[] nums) {
-		
-		return Arrays.stream(nums).max().getAsInt();
-	}
-	
 	/**
 	 * @param ranks
-	 * @param max
 	 * @return a list of indices of the max number in array ranks.
 	 */
-	private List<Integer> findMaxPlayer(int[] ranks, int max) {
+	private List<Integer> findMaxPlayer(int[] ranks) {
 		
+		int max = Arrays.stream(ranks).max().getAsInt();
 		List<Integer> res = new ArrayList<Integer>();
 		for(int i = 0; i < ranks.length; i++) {
 			if(ranks[i] == max) res.add(i);
