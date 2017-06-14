@@ -30,6 +30,9 @@ public class GameTest extends TestCase {
 		assertEquals(game.getCurrentPlayers().get(2).getNumber(), 17);
 	}
 
+	/**
+	 * Test 3 players play with 3 different cards. There will be only one winner.
+	 */  
 	@Test
 	public void testStartGameWithOneWinner() {
 		
@@ -41,6 +44,9 @@ public class GameTest extends TestCase {
 		assertEquals(game.getCurrentPlayers().get(0).getNumber(), 3);		
 	}
 	
+	/**
+	 * Test 3 players play with 3 same rank cards. There will be no one winner, it's a draw.
+	 */  
 	@Test
 	public void testStartGameWithDraw() {
 		
