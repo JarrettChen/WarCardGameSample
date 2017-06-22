@@ -4,6 +4,7 @@
 package org.nwea.sample.WarCardGameSample.deck;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,12 +20,10 @@ public class DeckImpl implements Deck {
 
 	private List<Card> deck = null;
 	
-	/** (non-Javadoc)
-	 * @see org.nwea.sample.WarCardGameSample.deck.Deck#create(int, int)
-	 */
+	
 	public void create(int numberOfSuits, int numberOfRanks) {
 		
-		deck = new ArrayList<Card>();
+		deck = new LinkedList<Card>();
 		
 		for(int i = 0; i < numberOfSuits; i++) {
 			Suit suit = new Suit(i); 
@@ -36,10 +35,7 @@ public class DeckImpl implements Deck {
 		}
 	}
 	
-	
-	/** (non-Javadoc)
-	 * @see org.nwea.sample.WarCardGameSample.deck.Deck#shuffle()
-	 */
+
 	public void shuffle() {
 		/* Must create a new deck before to shuffle the deck. */
 		if (deck == null) {
